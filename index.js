@@ -8,9 +8,9 @@ import emailRouter from "./Routes/Email.js";
 import nodemailer from "nodemailer";
 const server = express();
 dotenv.config();
+connectMongoDb();
 server.use(cors());
 server.use(express.json());
-await connectMongoDb();
 
 server.use("/api/user", userRouter);
 server.use("/api/residancy", residancyRouter);
