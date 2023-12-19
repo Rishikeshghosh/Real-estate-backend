@@ -77,7 +77,6 @@ export const getAllResidancies = asyncHandler(async (req, res) => {
 });
 export const getResidancy = asyncHandler(async (req, res) => {
   try {
-    
     const { residancyId } = req.params;
     const residancy = await Residancy.findById(residancyId);
     res.status(200).json(residancy);
@@ -198,5 +197,21 @@ export const updateProperty = asyncHandler(async (req, res) => {
     res.status(201).json(property);
   } catch (error) {
     res.status(400).json({ message: error.message });
+  }
+});
+
+export const getFiterResidancyByPrice = asyncHandler(async (req, res) => {
+  try {
+    const { price } = req.params;
+    const minPrice = price.minPrice;
+    const maxPrice = price.maxPrice;
+    const filterProperties = await Residancy.find({
+      price: { $gte: minPrice },
+      price: { $lte: maxPrice },
+    });
+
+    res.status(200).json(filterProperties);
+  } catch (error) {
+    res.status(400).json(error.message);
   }
 });
