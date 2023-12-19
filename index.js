@@ -10,7 +10,7 @@ const server = express();
 dotenv.config();
 server.use(cors());
 server.use(express.json());
-connectMongoDb();
+await connectMongoDb();
 
 server.use("/api/user", userRouter);
 server.use("/api/residancy", residancyRouter);
