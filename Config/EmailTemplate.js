@@ -1,7 +1,9 @@
 const WEBSITE_LINK = {
-  home: "http://localhost:3000",
-  login: "http://localhost:3000/Login",
-  SignUp: "http://localhost:3000/SignUp",
+  home: "https://6582d74656d7340438d1a1a0--nimble-sfogliatella-157311.netlify.app",
+  login:
+    "https://6582d74656d7340438d1a1a0--nimble-sfogliatella-157311.netlify.app/Login",
+  SignUp:
+    "https://6582d74656d7340438d1a1a0--nimble-sfogliatella-157311.netlify.app/SignUp",
 };
 
 export const forgotEmail = (pageLink) => {
