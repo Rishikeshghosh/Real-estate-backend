@@ -202,12 +202,11 @@ export const updateProperty = asyncHandler(async (req, res) => {
 
 export const getFiterResidancyByPrice = asyncHandler(async (req, res) => {
   try {
-    const { price } = req.params;
-    const minPrice = price.minPrice;
-    const maxPrice = price.maxPrice;
+    const { minPrice, maxPrice } = req.body;
+
     const filterProperties = await Residancy.find({
-      price: { $gte: minPrice },
-      price: { $lte: maxPrice },
+      price: { $lte: maxPrice, $gte: minPrice },
+      /*  price: { $gte: minPrice }, */
     });
 
     res.status(200).json(filterProperties);

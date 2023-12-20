@@ -5,7 +5,7 @@ import { connectMongoDb } from "./Config/ConnectDatabase.js";
 import userRouter from "./Routes/User.js";
 import residancyRouter from "./Routes/Residancy.js";
 import emailRouter from "./Routes/Email.js";
-import nodemailer from "nodemailer";
+
 const server = express();
 dotenv.config();
 connectMongoDb();

@@ -26,7 +26,7 @@ export const sendForogotPasswordEmail = asyncHandler(async (req, res) => {
         { new: true }
       );
 
-      const resetPageLink = `http://localhost:3000/Reset-Password?token=${token}&email=${appnedToken.email}`;
+      const resetPageLink = `https://6582d74656d7340438d1a1a0--nimble-sfogliatella-157311.netlify.app/Reset-Password?token=${token}&email=${appnedToken.email}`;
       const subject = "Reset your password for Homyz";
       const html = await forgotEmail(resetPageLink); //`<p>Click <a href='${resetPageLink}'>here</a> to reset your password wuth Homyz </p>`;
 
@@ -41,7 +41,6 @@ export const sendForogotPasswordEmail = asyncHandler(async (req, res) => {
       res.status(400).json({ message: "User not found with this email !" });
     }
   } catch (error) {
-    
     res.status(400).json(error.message);
   }
 });
